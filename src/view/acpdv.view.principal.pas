@@ -5,7 +5,8 @@ interface
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ExtCtrls, Vcl.Buttons, Data.DB,
-  Vcl.Grids, Vcl.DBGrids, Vcl.StdCtrls, Vcl.Imaging.jpeg;
+  Vcl.Grids, Vcl.DBGrids, Vcl.StdCtrls, Vcl.Imaging.jpeg, acpdv.view.page.login,
+  acpdv.model.dados;
 
 type
   Tpageprincipal = class(TForm)
@@ -33,7 +34,7 @@ type
     pnlMaisFuncoes: TPanel;
     Shape6: TShape;
     btnMaisFuncoes: TSpeedButton;
-    DBGrid1: TDBGrid;
+    gridProdutos: TDBGrid;
     pnlTotalCompra: TPanel;
     Label1: TLabel;
     Shape7: TShape;
@@ -61,8 +62,16 @@ type
     edtProduto: TEdit;
     pnlImgProduto: TPanel;
     ImageProduto: TImage;
+    pnlMaster: TPanel;
+    dsItens: TDataSource;
+    procedure FormCreate(Sender: TObject);
+    procedure FormShow(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
   private
-    { Private declarations }
+    FLogin: TPageLogin;
+    procedure MontarBotoes;
+
+    procedure FixarForm;
   public
 
   end;
@@ -73,5 +82,43 @@ var
 implementation
 
 {$R *.dfm}
+
+procedure Tpageprincipal.FixarForm;
+begin
+  Self.WindowState := TWindowState.wsNormal;
+  Self.Position := poScreenCenter;
+  Self.Constraints.MaxHeight := Self.ClientHeight;
+  Self.Constraints.MinHeight := Self.ClientHeight;
+  Self.Constraints.MaxWidth := Self.ClientWidth;
+  Self.Constraints.MinWidth := Self.ClientWidth;
+end;
+
+procedure Tpageprincipal.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+  FLogin.Free;
+end;
+
+procedure Tpageprincipal.FormCreate(Sender: TObject);
+begin
+  FixarForm;
+  MontarBotoes;
+end;
+
+procedure Tpageprincipal.FormShow(Sender: TObject);
+begin
+  FLogin := TPageLogin.Create(nil);
+  FLogin.Parent := pnlMaster;
+  FLogin.Show;
+end;
+
+procedure Tpageprincipal.MontarBotoes;
+begin
+  btnCancelarOp.Caption := 'Cancelar Operação ' + ''#13'' + ' (ESC)';
+  btnConsultarPreco.Caption := 'Consultar Preço' + ''#13'' + '(F4)';
+  btnAbrirCaixa.Caption := 'Abrir Caixa' + ''#13'' + '(F2)';
+  btnCancelarVenda.Caption := 'Cancelar Venda' + ''#13'' + '(F6)';
+  btnCancelarItem.Caption := 'Cancelar Item' + ''#13'' + '(F5)';
+  btnMaisFuncoes.Caption := 'Mais Funções' + ''#13'' + '(F12)';
+end;
 
 end.
