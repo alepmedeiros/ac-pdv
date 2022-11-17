@@ -3,10 +3,26 @@ unit acpdv.view.principal;
 interface
 
 uses
-  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ExtCtrls, Vcl.Buttons, Data.DB,
-  Vcl.Grids, Vcl.DBGrids, Vcl.StdCtrls, Vcl.Imaging.jpeg, acpdv.view.page.login,
-  acpdv.model.dados;
+  Winapi.Windows,
+  Winapi.Messages,
+  System.SysUtils,
+  System.Variants,
+  System.Classes,
+  Vcl.Graphics,
+  Vcl.Controls,
+  Vcl.Forms,
+  Vcl.Dialogs,
+  Vcl.ExtCtrls,
+  Vcl.Buttons,
+  Data.DB,
+  Vcl.Grids,
+  Vcl.DBGrids,
+  Vcl.StdCtrls,
+  Vcl.Imaging.jpeg,
+  acpdv.view.page.login,
+  acpdv.model.dados,
+  Vcl.WinXCtrls,
+  acpdv.view.page.pagamento;
 
 type
   Tpageprincipal = class(TForm)
@@ -64,14 +80,34 @@ type
     ImageProduto: TImage;
     pnlMaster: TPanel;
     dsItens: TDataSource;
+    SplitViewFuncoes: TSplitView;
+    Panel1: TPanel;
+    Panel2: TPanel;
+    Shape12: TShape;
+    Panel3: TPanel;
+    Shape13: TShape;
+    Panel4: TPanel;
+    Shape14: TShape;
+    Panel5: TPanel;
+    Shape15: TShape;
+    Panel6: TPanel;
+    Shape16: TShape;
+    Panel7: TPanel;
+    Shape17: TShape;
+    SplitViewPagamentos: TSplitView;
+    pnlPag: TPanel;
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure FormKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
+    procedure btnMaisFuncoesClick(Sender: TObject);
   private
     FLogin: TPageLogin;
     procedure MontarBotoes;
 
     procedure FixarForm;
+
+    procedure SplitViewAction(Value: TSplitView);
   public
 
   end;
@@ -82,6 +118,11 @@ var
 implementation
 
 {$R *.dfm}
+
+procedure Tpageprincipal.btnMaisFuncoesClick(Sender: TObject);
+begin
+  SplitViewAction(SplitViewFuncoes);
+end;
 
 procedure Tpageprincipal.FixarForm;
 begin
@@ -104,11 +145,39 @@ begin
   MontarBotoes;
 end;
 
+procedure Tpageprincipal.FormKeyDown(Sender: TObject; var Key: Word;
+  Shift: TShiftState);
+var
+  lPagamentos: TPagePagamentos;
+begin
+  case Key of
+    VK_ESCAPE:
+      ShowMessage('Cancelar Operacao');
+    VK_F4:
+      ShowMessage('Consultar Preço');
+    VK_F2:
+      ShowMessage('Abri Caixa');
+    VK_F6:
+      ShowMessage('Cancelar Venda');
+    VK_F5:
+      ShowMessage('Cancelar Item');
+    VK_F12:
+      btnMaisFuncoesClick(Sender);
+    VK_F7:
+      begin
+        lPagamentos := TPagePagamentos.Create(nil);
+        lPagamentos.Parent := pnlPag;
+        lPagamentos.Show;
+        SplitViewAction(SplitViewPagamentos);
+      end;
+  end;
+end;
+
 procedure Tpageprincipal.FormShow(Sender: TObject);
 begin
-  FLogin := TPageLogin.Create(nil);
-  FLogin.Parent := pnlMaster;
-  FLogin.Show;
+  // FLogin := TPageLogin.Create(nil);
+  // FLogin.Parent := pnlMaster;
+  // FLogin.Show;
 end;
 
 procedure Tpageprincipal.MontarBotoes;
@@ -119,6 +188,11 @@ begin
   btnCancelarVenda.Caption := 'Cancelar Venda' + ''#13'' + '(F6)';
   btnCancelarItem.Caption := 'Cancelar Item' + ''#13'' + '(F5)';
   btnMaisFuncoes.Caption := 'Mais Funções' + ''#13'' + '(F12)';
+end;
+
+procedure Tpageprincipal.SplitViewAction(Value: TSplitView);
+begin
+  Value.Opened := not Value.Opened;
 end;
 
 end.

@@ -12,9 +12,11 @@ object pageprincipal: Tpageprincipal
   Font.Height = -11
   Font.Name = 'Tahoma'
   Font.Style = []
+  KeyPreview = True
   OldCreateOrder = False
   OnClose = FormClose
   OnCreate = FormCreate
+  OnKeyDown = FormKeyDown
   OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 13
@@ -26,8 +28,6 @@ object pageprincipal: Tpageprincipal
     Align = alClient
     BevelOuter = bvNone
     TabOrder = 0
-    ExplicitWidth = 1134
-    ExplicitHeight = 700
     object pnlContainer: TPanel
       Left = 0
       Top = 0
@@ -36,8 +36,9 @@ object pageprincipal: Tpageprincipal
       Align = alClient
       BevelOuter = bvNone
       TabOrder = 0
-      ExplicitWidth = 1134
-      ExplicitHeight = 700
+      DesignSize = (
+        1190
+        710)
       object pnlTitle: TPanel
         Left = 0
         Top = 0
@@ -55,7 +56,6 @@ object pageprincipal: Tpageprincipal
         ParentBackground = False
         ParentFont = False
         TabOrder = 0
-        ExplicitWidth = 1134
       end
       object pnlButton: TPanel
         Left = 0
@@ -69,8 +69,6 @@ object pageprincipal: Tpageprincipal
         Padding.Right = 5
         Padding.Bottom = 10
         TabOrder = 1
-        ExplicitTop = 600
-        ExplicitWidth = 1134
         object pnlCancelarOp: TPanel
           AlignWithMargins = True
           Left = 5
@@ -162,7 +160,6 @@ object pageprincipal: Tpageprincipal
           Align = alLeft
           BevelOuter = bvNone
           TabOrder = 2
-          ExplicitLeft = 386
           object Shape3: TShape
             Left = 0
             Top = 0
@@ -203,7 +200,6 @@ object pageprincipal: Tpageprincipal
           Align = alLeft
           BevelOuter = bvNone
           TabOrder = 3
-          ExplicitLeft = 579
           object Shape4: TShape
             Left = 0
             Top = 0
@@ -244,7 +240,6 @@ object pageprincipal: Tpageprincipal
           Align = alLeft
           BevelOuter = bvNone
           TabOrder = 4
-          ExplicitLeft = 762
           object Shape5: TShape
             Left = 0
             Top = 0
@@ -307,6 +302,7 @@ object pageprincipal: Tpageprincipal
             Align = alClient
             Caption = 'Mais Fun'#231#245'es'
             Flat = True
+            OnClick = btnMaisFuncoesClick
             ExplicitLeft = 32
             ExplicitTop = 32
             ExplicitWidth = 23
@@ -322,8 +318,6 @@ object pageprincipal: Tpageprincipal
         Align = alClient
         BevelOuter = bvNone
         TabOrder = 2
-        ExplicitWidth = 1134
-        ExplicitHeight = 540
         object pnlOperacoes: TPanel
           Left = 790
           Top = 0
@@ -334,8 +328,6 @@ object pageprincipal: Tpageprincipal
           Padding.Top = 5
           Padding.Bottom = 20
           TabOrder = 0
-          ExplicitLeft = 734
-          ExplicitHeight = 540
           object pnlTotalCompra: TPanel
             Left = 0
             Top = 460
@@ -345,7 +337,6 @@ object pageprincipal: Tpageprincipal
             BevelOuter = bvNone
             Padding.Top = 5
             TabOrder = 0
-            ExplicitTop = 450
             object Label1: TLabel
               AlignWithMargins = True
               Left = 3
@@ -418,7 +409,6 @@ object pageprincipal: Tpageprincipal
             BevelOuter = bvNone
             Padding.Top = 5
             TabOrder = 1
-            ExplicitTop = 380
             object Label2: TLabel
               AlignWithMargins = True
               Left = 3
@@ -491,7 +481,6 @@ object pageprincipal: Tpageprincipal
             BevelOuter = bvNone
             Padding.Top = 5
             TabOrder = 2
-            ExplicitTop = 310
             object Label3: TLabel
               AlignWithMargins = True
               Left = 3
@@ -566,7 +555,6 @@ object pageprincipal: Tpageprincipal
             BevelOuter = bvNone
             Padding.Top = 5
             TabOrder = 3
-            ExplicitTop = 240
             object Label4: TLabel
               AlignWithMargins = True
               Left = 3
@@ -639,7 +627,6 @@ object pageprincipal: Tpageprincipal
             BevelOuter = bvNone
             Padding.Top = 5
             TabOrder = 4
-            ExplicitTop = 170
             object Label5: TLabel
               AlignWithMargins = True
               Left = 3
@@ -717,7 +704,6 @@ object pageprincipal: Tpageprincipal
             Padding.Right = 120
             Padding.Bottom = 10
             TabOrder = 5
-            ExplicitHeight = 165
             object ImageProduto: TImage
               Left = 120
               Top = 10
@@ -889,8 +875,6 @@ object pageprincipal: Tpageprincipal
           Padding.Right = 5
           Padding.Bottom = 5
           TabOrder = 1
-          ExplicitWidth = 734
-          ExplicitHeight = 540
           object gridProdutos: TDBGrid
             Left = 5
             Top = 5
@@ -990,6 +974,202 @@ object pageprincipal: Tpageprincipal
                 Visible = True
               end>
           end
+        end
+      end
+      object SplitViewFuncoes: TSplitView
+        Left = 1190
+        Top = 60
+        Width = 0
+        Height = 550
+        AnimationDelay = 0
+        DisplayMode = svmOverlay
+        Opened = False
+        OpenedWidth = 200
+        Placement = svpRight
+        TabOrder = 3
+        UseAnimation = False
+        object Panel1: TPanel
+          Left = 0
+          Top = 0
+          Width = 0
+          Height = 550
+          Align = alClient
+          BevelOuter = bvNone
+          Color = 14342621
+          ParentBackground = False
+          TabOrder = 0
+          object Panel2: TPanel
+            Left = 0
+            Top = 164
+            Width = 0
+            Height = 41
+            Align = alTop
+            BevelOuter = bvNone
+            Caption = 'Desconto Item (F11)'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -16
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+            TabOrder = 0
+            object Shape12: TShape
+              Left = 0
+              Top = 40
+              Width = 0
+              Height = 1
+              Align = alBottom
+              ExplicitTop = 39
+              ExplicitWidth = 200
+            end
+          end
+          object Panel3: TPanel
+            Left = 0
+            Top = 123
+            Width = 0
+            Height = 41
+            Align = alTop
+            BevelOuter = bvNone
+            Caption = 'Multiplicar (*)'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -16
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+            TabOrder = 1
+            object Shape13: TShape
+              Left = 0
+              Top = 40
+              Width = 0
+              Height = 1
+              Align = alBottom
+              ExplicitTop = 39
+              ExplicitWidth = 200
+            end
+          end
+          object Panel4: TPanel
+            Left = 0
+            Top = 82
+            Width = 0
+            Height = 41
+            Align = alTop
+            BevelOuter = bvNone
+            Caption = 'Fechar Venda (F7)'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -16
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+            TabOrder = 2
+            object Shape14: TShape
+              Left = 0
+              Top = 40
+              Width = 0
+              Height = 1
+              Align = alBottom
+              ExplicitTop = 39
+              ExplicitWidth = 200
+            end
+          end
+          object Panel5: TPanel
+            Left = 0
+            Top = 41
+            Width = 0
+            Height = 41
+            Align = alTop
+            BevelOuter = bvNone
+            Caption = 'Nova Venda (F3)'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -16
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+            TabOrder = 3
+            object Shape15: TShape
+              Left = 0
+              Top = 40
+              Width = 0
+              Height = 1
+              Align = alBottom
+              ExplicitTop = 39
+              ExplicitWidth = 200
+            end
+          end
+          object Panel6: TPanel
+            Left = 0
+            Top = 0
+            Width = 0
+            Height = 41
+            Align = alTop
+            BevelOuter = bvNone
+            Caption = 'Informar CPF (F9)'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -16
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+            TabOrder = 4
+            object Shape16: TShape
+              Left = 0
+              Top = 40
+              Width = 0
+              Height = 1
+              Align = alBottom
+              ExplicitTop = 39
+              ExplicitWidth = 200
+            end
+          end
+          object Panel7: TPanel
+            Left = 0
+            Top = 205
+            Width = 0
+            Height = 41
+            Align = alTop
+            BevelOuter = bvNone
+            Caption = 'Suprimento/Sangira (Ctrl+F4)'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -15
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+            TabOrder = 5
+            object Shape17: TShape
+              Left = 0
+              Top = 40
+              Width = 0
+              Height = 1
+              Align = alBottom
+              ExplicitTop = 39
+              ExplicitWidth = 200
+            end
+          end
+        end
+      end
+      object SplitViewPagamentos: TSplitView
+        Left = 1190
+        Top = 60
+        Width = 0
+        Height = 550
+        AnimationDelay = 0
+        DisplayMode = svmOverlay
+        Opened = False
+        OpenedWidth = 840
+        Placement = svpRight
+        TabOrder = 5
+        UseAnimation = False
+        object pnlPag: TPanel
+          Left = 0
+          Top = 0
+          Width = 0
+          Height = 550
+          Align = alClient
+          BevelOuter = bvNone
+          TabOrder = 0
         end
       end
     end
