@@ -9,10 +9,10 @@ uses
 
 type
   TFramePix = class(TFrame)
-    Panel1: TPanel;
+    pnlQrCode: TPanel;
     Image1: TImage;
   private
-    { Private declarations }
+
   public
     { Public declarations }
   end;
@@ -20,5 +20,7 @@ type
 implementation
 
 {$R *.dfm}
+
+{ TFramePix }
 
 end.

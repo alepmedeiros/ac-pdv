@@ -4,27 +4,28 @@ object FramePix: TFramePix
   Width = 382
   Height = 259
   TabOrder = 0
-  object Panel1: TPanel
+  object pnlQrCode: TPanel
     Left = 0
     Top = 0
     Width = 382
     Height = 259
     Align = alClient
     BevelOuter = bvNone
-    Padding.Left = 100
+    Padding.Left = 150
     Padding.Top = 30
-    Padding.Right = 100
+    Padding.Right = 150
     Padding.Bottom = 30
     TabOrder = 0
-    ExplicitLeft = 168
-    ExplicitTop = 192
-    ExplicitWidth = 185
-    ExplicitHeight = 41
     object Image1: TImage
-      Left = 100
+      AlignWithMargins = True
+      Left = 150
       Top = 30
-      Width = 182
+      Width = 82
       Height = 199
+      Margins.Left = 0
+      Margins.Top = 0
+      Margins.Right = 0
+      Margins.Bottom = 0
       Align = alClient
       Picture.Data = {
         0954506E67496D61676589504E470D0A1A0A0000000D49484452000003C90000

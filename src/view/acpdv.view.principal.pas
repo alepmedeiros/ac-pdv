@@ -22,7 +22,7 @@ uses
   acpdv.view.page.login,
   acpdv.model.dados,
   Vcl.WinXCtrls,
-  acpdv.view.page.pagamento;
+  acpdv.view.page.pagamento, acpdv.view.page.identificarcliente;
 
 type
   Tpageprincipal = class(TForm)
@@ -96,6 +96,8 @@ type
     Shape17: TShape;
     SplitViewPagamentos: TSplitView;
     pnlPag: TPanel;
+    Panel8: TPanel;
+    Shape18: TShape;
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
@@ -170,6 +172,17 @@ begin
         lPagamentos.Show;
         SplitViewAction(SplitViewPagamentos);
       end;
+    VK_CONTROL: begin
+      TPageIdentificarCliente.New(Self)
+        .Embed(pnlMaster)
+        .Show;
+    end;
+    VK_F9: begin
+      TPageIdentificarCliente.New(Self)
+        .IdentificaCPF
+        .Embed(pnlMaster)
+        .Show;
+    end;
   end;
 end;
 
