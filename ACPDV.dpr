@@ -10,7 +10,8 @@ uses
   acpdv.view.page.pix in 'src\view\acpdv.view.page.pix.pas' {FramePix: TFrame},
   acpdv.view.page.dinheiro in 'src\view\acpdv.view.page.dinheiro.pas' {FrameDinheiro: TFrame},
   acpdv.view.page.cartao in 'src\view\acpdv.view.page.cartao.pas' {FrameCartao: TFrame},
-  acpdv.view.page.identificarcliente in 'src\view\acpdv.view.page.identificarcliente.pas' {PageIdentificarCliente};
+  acpdv.view.page.identificarcliente in 'src\view\acpdv.view.page.identificarcliente.pas' {PageIdentificarCliente},
+  acpdv.view.page.importarcliente in 'src\view\acpdv.view.page.importarcliente.pas' {PageImportarCliente};
 
 {$R *.res}
 

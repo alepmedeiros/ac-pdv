@@ -51,9 +51,6 @@ object PageIdentificarCliente: TPageIdentificarCliente
       Font.Style = []
       ParentFont = False
       TabOrder = 0
-      ExplicitLeft = 40
-      ExplicitTop = 40
-      ExplicitWidth = 185
       object Shape1: TShape
         Left = 0
         Top = 40
@@ -71,9 +68,6 @@ object PageIdentificarCliente: TPageIdentificarCliente
       Align = alTop
       BevelOuter = bvNone
       TabOrder = 1
-      ExplicitLeft = 136
-      ExplicitTop = 104
-      ExplicitWidth = 185
       object Label1: TLabel
         Left = 0
         Top = 0
@@ -117,10 +111,6 @@ object PageIdentificarCliente: TPageIdentificarCliente
         Font.Style = []
         ParentFont = False
         TabOrder = 0
-        ExplicitLeft = 0
-        ExplicitTop = 18
-        ExplicitWidth = 450
-        ExplicitHeight = 23
       end
     end
     object pnlNome: TPanel
@@ -131,9 +121,6 @@ object PageIdentificarCliente: TPageIdentificarCliente
       Align = alTop
       BevelOuter = bvNone
       TabOrder = 2
-      ExplicitLeft = 136
-      ExplicitTop = 104
-      ExplicitWidth = 185
       object Label2: TLabel
         Left = 0
         Top = 0
@@ -195,8 +182,6 @@ object PageIdentificarCliente: TPageIdentificarCliente
       Padding.Right = 5
       Padding.Bottom = 5
       TabOrder = 3
-      ExplicitTop = 130
-      ExplicitHeight = 50
       object Panel5: TPanel
         AlignWithMargins = True
         Left = 5
@@ -232,8 +217,6 @@ object PageIdentificarCliente: TPageIdentificarCliente
           Align = alClient
           BevelOuter = bvNone
           TabOrder = 0
-          ExplicitWidth = 150
-          ExplicitHeight = 80
           object Panel7: TPanel
             Left = 0
             Top = 0
@@ -242,7 +225,6 @@ object PageIdentificarCliente: TPageIdentificarCliente
             Align = alTop
             BevelOuter = bvNone
             TabOrder = 0
-            ExplicitWidth = 150
             object Image1: TImage
               AlignWithMargins = True
               Left = 45
@@ -1155,8 +1137,6 @@ object PageIdentificarCliente: TPageIdentificarCliente
             Font.Style = []
             ParentFont = False
             TabOrder = 1
-            ExplicitWidth = 150
-            ExplicitHeight = 39
           end
         end
       end
@@ -1194,8 +1174,6 @@ object PageIdentificarCliente: TPageIdentificarCliente
           Align = alClient
           BevelOuter = bvNone
           TabOrder = 0
-          ExplicitWidth = 150
-          ExplicitHeight = 80
           object Panel11: TPanel
             Left = 0
             Top = 0
@@ -1205,9 +1183,6 @@ object PageIdentificarCliente: TPageIdentificarCliente
             BevelOuter = bvNone
             TabOrder = 0
             OnClick = Panel11Click
-            ExplicitLeft = 3
-            ExplicitTop = 1
-            ExplicitWidth = 150
             object Image4: TImage
               AlignWithMargins = True
               Left = 45
@@ -1605,8 +1580,6 @@ object PageIdentificarCliente: TPageIdentificarCliente
             Font.Style = []
             ParentFont = False
             TabOrder = 1
-            ExplicitWidth = 150
-            ExplicitHeight = 39
           end
         end
       end

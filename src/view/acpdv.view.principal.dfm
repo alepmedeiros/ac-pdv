@@ -879,7 +879,7 @@ object pageprincipal: Tpageprincipal
             Left = 5
             Top = 5
             Width = 780
-            Height = 540
+            Height = 499
             Align = alClient
             BorderStyle = bsNone
             DataSource = dsItens
@@ -973,6 +973,27 @@ object pageprincipal: Tpageprincipal
                 Width = 82
                 Visible = True
               end>
+          end
+          object pnlIdentificaCliente: TPanel
+            Left = 5
+            Top = 504
+            Width = 780
+            Height = 41
+            Align = alBottom
+            BevelOuter = bvNone
+            Color = 7119398
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -15
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentBackground = False
+            ParentFont = False
+            TabOrder = 1
+            Visible = False
+            ExplicitLeft = 440
+            ExplicitTop = 288
+            ExplicitWidth = 185
           end
         end
       end
@@ -1155,7 +1176,7 @@ object pageprincipal: Tpageprincipal
             Height = 41
             Align = alTop
             BevelOuter = bvNone
-            Caption = 'Informar Cliente (Ctrl)'
+            Caption = 'Importar Cliente (Ctrl)'
             Font.Charset = DEFAULT_CHARSET
             Font.Color = clWindowText
             Font.Height = -16
@@ -1163,8 +1184,6 @@ object pageprincipal: Tpageprincipal
             Font.Style = []
             ParentFont = False
             TabOrder = 6
-            ExplicitTop = 8
-            ExplicitWidth = 200
             object Shape18: TShape
               Left = 0
               Top = 40

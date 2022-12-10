@@ -37,11 +37,12 @@ type
     procedure FormResize(Sender: TObject);
     procedure Panel11Click(Sender: TObject);
   private
-    { Private declarations }
+    FProc: TProc<String, String>;
   public
     class function New(AOWner: TComponent): TPageIdentificarCliente;
     function Embed(Value: TWinControl): TPageIdentificarCliente;
     function IdentificaCPF: TPageIdentificarCliente;
+    function IdentificarCliente(Value: TProc<String, String>): TPageIdentificarCliente;
   end;
 
 var
@@ -84,6 +85,13 @@ begin
   pnlIdentificacaoCliente.Height := (pnlIdentificacaoCliente.Height-pnlNome.Height);
 end;
 
+function TPageIdentificarCliente.IdentificarCliente(
+  Value: TProc<String, String>): TPageIdentificarCliente;
+begin
+  Result := Self;
+  FProc := Value;
+end;
+
 class function TPageIdentificarCliente.New(
   AOWner: TComponent): TPageIdentificarCliente;
 begin
@@ -92,7 +100,8 @@ end;
 
 procedure TPageIdentificarCliente.Panel11Click(Sender: TObject);
 begin
-  ShowMessage('Confirmado');
+  if Assigned(FProc) then
+    FProc(edtCPFCnpj.Text, edtNome.Text);
   Self.Close;
 end;
 
